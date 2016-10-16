@@ -4,8 +4,11 @@ $web-header-color: $color-white;
 
 //Style
 .web-header {
+	top: 0px; left: 0px;
+	position: fixed;
+	width: 100%;
 	padding: 15px 0px;
-	background: $web-header-background;
+	background: fade-out($web-header-background, 0.2);
 	color: $web-header-color;
 	text-align: center;
 	text-transform: uppercase;

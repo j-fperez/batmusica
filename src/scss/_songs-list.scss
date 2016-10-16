@@ -2,8 +2,20 @@
 
 // Styles
 .songs-list {
-	
 	.song{
-		background: red;
+		@extend .clearfix;
+		border-bottom: 1px solid $color-grey;
+		.cover {
+			padding-top: 10px;
+			padding-bottom: 10px;
+			width: 60px;
+			float: left;
+			margin-right: 10px; 
+		}
+		.artist {
+			margin-top: 15px;
+			font-weight: bold;
+		}
+		.title {}
 	}
 }
