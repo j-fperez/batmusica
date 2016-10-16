@@ -1,0 +1,27 @@
+// Font families
+$main-font-family: "Open Sans", sans-serif;
+$titles-font-family: $main-font-family;
+$body-font-family: $main-font-family;
+
+// Font sizes:
+$font-size-base: 14px;
+$font-size-small: $font-size-base - 6px;
+$font-size-large: $font-size-base + 6px;
+$font-size-h1: $font-size-base + 15px;
+$font-size-h2: $font-size-base + 12px;
+$font-size-h3: $font-size-base + 9px;
+$font-size-h4: $font-size-base + 6px;
+$font-size-h5: $font-size-base + 3px;
+$font-size-h6: $font-size-base;
+
+// Colors
+$color-white: #fff;
+$color-black: #333;
+$color-grey: #EBEDEA;
+$color-sirena: #8ED7BF;
+$color-ivory-ish: #FCF3CE;
+$color-pastel-orange: #F9BB96;
+
+//Component colors
+$main-text-color: $color-black;
+$body-background-color: $color-white;

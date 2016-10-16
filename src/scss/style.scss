@@ -1,5 +1,6 @@
-$mobile-text-color: gold;
-
-h1 {
-	color: $mobile-text-color;
-}
+@import "reset";
+@import "https://fonts.googleapis.com/css?family=Open+Sans";
+@import "variables";
+@import "html-tags";
+@import "web-header";
+@import "songs-list";
