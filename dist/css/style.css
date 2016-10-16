@@ -77,14 +77,36 @@ img, embed, object, video {
     font-size: 19px;
     text-shadow: 2px 2px 0px #359777; }
 
+@media all and (min-width: 737px) {
+  .songs-list {
+    display: flex;
+    flex-wrap: wrap; } }
+
 .songs-list .song {
   border-bottom: 1px solid #EBEDEA; }
+  @media all and (min-width: 737px) {
+    .songs-list .song {
+      box-sizing: border-box;
+      width: 20%;
+      text-align: center;
+      padding: 10px; } }
   .songs-list .song .cover {
     padding-top: 10px;
     padding-bottom: 10px;
     width: 60px;
     float: left;
     margin-right: 10px; }
+    @media all and (min-width: 737px) {
+      .songs-list .song .cover {
+        width: 100%;
+        margin-bottom: 10px; } }
   .songs-list .song .artist {
     margin-top: 15px;
     font-weight: bold; }
+  .songs-list .song .artist, .songs-list .song .title {
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 16px;
+    padding-right: 20px; }
