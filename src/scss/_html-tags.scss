@@ -10,3 +10,56 @@ body {
 img, embed, object, video {
 	max-width: 100%;
 }
+
+// Forms
+form {
+	padding: 10px;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background: ($color-white);
+	position: absolute;
+	width: calc(100% - 20px);
+	top: 0px;
+}
+label, input, button {
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+}
+label {
+	font-size: $font-size-small;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+input {
+	border: 1px solid $color-sirena;
+	margin: 5px 0px 15px 0px;
+	padding: 10px;
+	font-size: $font-size-base;
+	border-radius: 5px;
+	&:focus {
+		outline-color: $color-sirena;
+		background: $color-grey;
+	}
+}
+button {
+	@extend input;
+	background: $color-sirena;
+	font-weight: bold;
+	text-transform: uppercase;
+	color: darken($color-sirena, 50%);
+	transition: all 0.25s;
+	&:hover {
+		background: darken($color-sirena, 10%);
+	}
+	&:active { // button:active
+		background: darken($color-sirena, 20%);
+		color: $color-white;
+	}
+}
+
+::selection{
+	background: $color-ivory-ish;
+}

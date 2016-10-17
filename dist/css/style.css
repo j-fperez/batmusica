@@ -63,9 +63,56 @@ body {
 img, embed, object, video {
   max-width: 100%; }
 
+form {
+  padding: 10px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #fff;
+  position: absolute;
+  width: calc(100% - 20px);
+  top: 0px; }
+
+label, input, button, button {
+  display: block;
+  width: 100%;
+  box-sizing: border-box; }
+
+label {
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase; }
+
+input, button {
+  border: 1px solid #8ED7BF;
+  margin: 5px 0px 15px 0px;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 5px; }
+  input:focus, button:focus {
+    outline-color: #8ED7BF;
+    background: #EBEDEA; }
+
+button {
+  background: #8ED7BF;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #1b4b3b;
+  transition: all 0.25s; }
+  button:hover {
+    background: #68caaa; }
+  button:active {
+    background: #43bc94;
+    color: #fff; }
+
+::selection {
+  background: #FCF3CE; }
+
 .web-header {
   top: 0px;
   left: 0px;
+  z-index: 99;
   position: fixed;
   width: 100%;
   padding: 15px 0px;
@@ -83,6 +130,8 @@ img, embed, object, video {
     flex-wrap: wrap; } }
 
 .songs-list .song {
+  box-sizing: border-box;
+  padding: 10px;
   border-bottom: 1px solid #EBEDEA; }
   @media all and (min-width: 737px) {
     .songs-list .song {
@@ -91,8 +140,6 @@ img, embed, object, video {
       text-align: center;
       padding: 10px; } }
   .songs-list .song .cover {
-    padding-top: 10px;
-    padding-bottom: 10px;
     width: 60px;
     float: left;
     margin-right: 10px; }
@@ -110,3 +157,12 @@ img, embed, object, video {
     overflow: hidden;
     height: 16px;
     padding-right: 20px; }
+
+body .ui-element {
+  display: none; }
+
+body.form-shown .new-song-form {
+  display: flex; }
+
+body.songs-list-shown .songs-list {
+  display: block; }

@@ -4,13 +4,32 @@
 	<title>Batmusica</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0">
+	<meta name="theme-color" content="#8ED7BF">
 	<link rel="stylesheet" type="text/css" href="dist/css/style.css">
 </head>
-<body>
+<body class="form-shown">
 	<header class = "web-header">
 		<h1 class = "web-title">Batmusic</h1>
 	</header>
-	<section class="songs-list">
+
+	<form class = "ui-element new-song-form" novalidate>
+		<label for="artist">Artist</label>
+		<input type="text" id="artist" name="artist" placeholder="Artist" required>
+		
+		<label for="title">Title</label>
+		<input type="text" id="title" name="title" name="title" placeholder="Song title" required>
+		
+		<label for="audio_url">Audio URL</label>
+		<input type="url" id="audio_url" name="audio_url" name = "audio_url" placeholder="http://..." required="">
+
+		<label for="cover_url">Cover URL</label>
+		<input type="url" id="cover_url" name="cover_url" placeholder="http://...">
+
+		<button>Save song</button>
+
+	</form>
+
+	<section class="ui-element songs-list">
 		<article class="song">
 			<img class="cover" src="https://image.freepik.com/free-icon/cd-rom_318-9291.jpg">
 			<div class="artist">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus, est reprehenderit reiciendis similique unde dicta illo magnam soluta numquam iste. Qui, fugiat debitis beatae ipsum eos voluptatem consectetur repellat at.</div>

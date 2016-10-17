@@ -8,6 +8,8 @@
 	}
 	
 	.song{
+		box-sizing: border-box;
+		padding: 10px;
 		@extend .clearfix;
 		border-bottom: 1px solid $color-grey;
 
@@ -19,8 +21,6 @@
 		}
 
 		.cover {
-			padding-top: 10px;
-			padding-bottom: 10px;
 			width: 60px;
 			float: left;
 			margin-right: 10px; 

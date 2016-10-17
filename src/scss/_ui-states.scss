@@ -1,0 +1,20 @@
+body {
+
+	// Por defecto todos los UI Elements ocultos
+	.ui-element {
+		display: none;
+	}
+
+	// Muestra el formulario
+	&.form-shown .new-song-form {
+		display: flex;
+		}
+
+	// Muestra el listado de canciones
+	&.songs-list-shown .songs-list{
+		display: block;
+	}
+
+	
+}
+	
