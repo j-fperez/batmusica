@@ -22,6 +22,20 @@ form {
 	position: absolute;
 	width: calc(100% - 20px);
 	top: 0px;
+	@include if-is-tablet {
+		height: auto;
+		position: relative;
+		flex-direction: row;
+		flex-wrap: wrap;
+		div {
+			width: calc(50% - 10px);
+			margin: auto 5px
+		}
+
+		button {
+			width: 20%;
+		}
+	}
 }
 label, input, button {
 	display: block;

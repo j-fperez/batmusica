@@ -6,15 +6,23 @@ body {
 	}
 
 	// Muestra el formulario
-	&.form-shown .new-song-form {
-		display: flex;
+	&.form-shown {
+		.new-song-form {
+			display: flex;
 		}
-
-	// Muestra el listado de canciones
-	&.songs-list-shown .songs-list{
-		display: block;
+		@include if-is-tablet {
+			.songs-list {
+				display: flex;
+			}
+		}
 	}
 
-	
+	// Muestra el listado de canciones
+	&.songs-list-shown .songs-list {
+		display: block;
+		@include if-is-tablet {
+			display: flex;	
+		}
+	}
+
 }
-	

@@ -73,6 +73,17 @@ form {
   position: absolute;
   width: calc(100% - 20px);
   top: 0px; }
+  @media all and (min-width: 737px) {
+    form {
+      height: auto;
+      position: relative;
+      flex-direction: row;
+      flex-wrap: wrap; }
+      form div {
+        width: calc(50% - 10px);
+        margin: auto 5px; }
+      form button {
+        width: 20%; } }
 
 label, input, button, button {
   display: block;
@@ -164,5 +175,12 @@ body .ui-element {
 body.form-shown .new-song-form {
   display: flex; }
 
+@media all and (min-width: 737px) {
+  body.form-shown .songs-list {
+    display: flex; } }
+
 body.songs-list-shown .songs-list {
   display: block; }
+  @media all and (min-width: 737px) {
+    body.songs-list-shown .songs-list {
+      display: flex; } }
