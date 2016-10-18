@@ -68,7 +68,7 @@ button {
 	&:hover {
 		background: darken($color-sirena, 10%);
 	}
-	&:active { // button:active
+	&:active {
 		background: darken($color-sirena, 20%);
 		color: $color-white;
 	}
