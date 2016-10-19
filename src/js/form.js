@@ -1,9 +1,9 @@
 var $ = require('jquery');
 
 
-// al hacer click en el botón de guardar
+// al enviar formulario pulsando enter  o haciendo clic  en el botón
 // enviamos una petición AJAX para almacernar la canción
-$('.new-song-form button').on("click", function() {
+$('.new-song-form').on("submit", function() {
 
 	// Validación de inputs
 	var inputs = $(".new-song-form input");
