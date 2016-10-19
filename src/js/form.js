@@ -30,6 +30,11 @@ $('.new-song-form button').on("click", function() {
 		url: "/api/songs/",
 		method: "post",
 		data: song,
+		beforeSend: function(){
+			$(inputs).attr('disabled', true); // deshabilito todos los inputs
+			// Cambio el texto del botón y lo deshabilito
+			$('.new-song-form button').text('Saving song...').attr("disabled", true);
+		},
 		success: function(response) {
 			console.log("SUCCESS", response);
 			$("form")[0].reset(); // borro todos los campos del formulario
@@ -37,6 +42,11 @@ $('.new-song-form button').on("click", function() {
 		},
 		error: function(){
 			console.error("ERROR", arguments);
+		},
+		complete: function(){
+			$(inputs).attr('disabled', false); // habilito todos los inputs
+			// Cambio el texto del botón y lo habilito
+			$('.new-song-form button').text('Save Song').attr("disabled", false);
 		}
 
 	});

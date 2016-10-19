@@ -1,3 +1,3 @@
 var $ = require('jquery');
 
-console.log("Songs list");
+// console.log("Songs list");
