@@ -3,7 +3,6 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var notify = require('gulp-notify');
 var browserSync = require ('browser-sync').create();
-var concat = require('gulp-concat');
 var browserify = require('browserify');
 var tap = require('gulp-tap');
 var buffer = require('gulp-buffer');
