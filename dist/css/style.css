@@ -163,6 +163,12 @@ button {
       .songs-list .song .cover {
         width: 100%;
         margin-bottom: 10px; } }
+  .songs-list .song .favourite-button {
+    float: right;
+    margin: 20px 10px 0 0; }
+    @media all and (min-width: 737px) {
+      .songs-list .song .favourite-button {
+        margin: 0; } }
   .songs-list .song .artist {
     margin-top: 15px;
     font-weight: bold; }
@@ -171,8 +177,10 @@ button {
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    height: 16px;
-    padding-right: 20px; }
+    height: 16px; }
+    @media all and (min-width: 737px) {
+      .songs-list .song .artist, .songs-list .song .title {
+        padding-right: 20px; } }
 
 body .ui-element {
   display: none; }
