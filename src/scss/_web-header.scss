@@ -17,4 +17,10 @@ $web-header-color: $color-white;
 		font-size: $font-size-base + 5px;
 		text-shadow: 2px 2px 0px darken($web-header-background, 30%);
 	}
+	.add-icon {
+		float:right;
+		margin-right: 10px;
+		transition: transform 0.25s;
+		cursor: pointer;
+	}
 }

@@ -1,2 +1,3 @@
-require('./form.js');
-require('./songs-list.js');
+require('./form');
+require('./add-icon');
+require('./init');

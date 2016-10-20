@@ -10221,11 +10221,20 @@ return jQuery;
 } );
 
 },{}],2:[function(require,module,exports){
-require('./form.js');
-require('./songs-list.js');
-
-},{"./form.js":3,"./songs-list.js":4}],3:[function(require,module,exports){
 var $ = require('jquery');
+
+$('.add-icon').on("click", function(){
+	$("body").toggleClass("form-shown").toggleClass('songs-list-shown');
+});
+
+},{"jquery":1}],3:[function(require,module,exports){
+require('./form');
+require('./add-icon');
+require('./init');
+
+},{"./add-icon":2,"./form":4,"./init":5}],4:[function(require,module,exports){
+var $ = require('jquery');
+var songsList = require('./songs-list');
 
 
 // al enviar formulario pulsando enter  o haciendo clic  en el botón
@@ -10248,8 +10257,8 @@ $('.new-song-form').on("submit", function() {
 	var song = {
 		artist: $("#artist").val(),
 		title: $("#title").val(),
-		audio_utl: $("#audio_url").val(),
-		cover_url: $("cover_url").val()
+		audio_url: $("#audio_url").val(),
+		cover_url: $("#cover_url").val()
 	};
 
 	//petición AJAX para guardar la información en el backend
@@ -10266,6 +10275,7 @@ $('.new-song-form').on("submit", function() {
 			console.log("SUCCESS", response);
 			$("form")[0].reset(); // borro todos los campos del formulario
 			$("#artist").focus(); // pongo el foco en el campo artist
+			songsList.load();
 		},
 		error: function(){
 			console.error("ERROR", arguments);
@@ -10280,9 +10290,51 @@ $('.new-song-form').on("submit", function() {
 
 	return false; // == e.preventDefault();
 });
-},{"jquery":1}],4:[function(require,module,exports){
+},{"./songs-list":6,"jquery":1}],5:[function(require,module,exports){
+var songsList = require('./songs-list');
+
+// Cargamos la lista de canciones
+songsList.load();
+
+},{"./songs-list":6}],6:[function(require,module,exports){
+var $ = require('jquery');
+var utils = require("./utils");
+
+module.exports = {
+	load: function(){
+		// Petición AJAX para cargar la lista de canciones
+		$.ajax({
+		    url: "/api/songs/?_order=id",
+		    success: function(response) {
+		    	$('.songs-list').html(''); // vaciamos la lista
+		        for (var i in response) {
+		            var song = response[i];
+
+		            var cover_url = song.cover_url;
+					if (cover_url == "" | cover_url == undefined) {
+						cover_url = 'src/img/disc-placeholder.jpg';	
+					}
+		            var html = '<article class="song">';
+		            html += '<img class="cover" src="' + cover_url + '">';
+		            html += '<div class="artist">' + utils.escapeHTML(song.artist) + '</div>';
+		            html += '<div class="title">' + utils.escapeHTML(song.title) + '</div>';
+		            html += '</article>';
+		            $('.songs-list').append(html);
+		        }
+		    },
+		    error: function(response){
+		    	console.error("ERROR", response);
+		    }
+		});
+	}
+}
+
+},{"./utils":7,"jquery":1}],7:[function(require,module,exports){
 var $ = require('jquery');
 
-// console.log("Songs list");
-
-},{"jquery":1}]},{},[2]);
+module.exports = {
+	escapeHTML: function (str) {
+	return $('<div>').text(str).html();
+	}
+}
+},{"jquery":1}]},{},[3]);

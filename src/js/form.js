@@ -1,4 +1,5 @@
 var $ = require('jquery');
+var songsList = require('./songs-list');
 
 
 // al enviar formulario pulsando enter  o haciendo clic  en el botón
@@ -21,8 +22,8 @@ $('.new-song-form').on("submit", function() {
 	var song = {
 		artist: $("#artist").val(),
 		title: $("#title").val(),
-		audio_utl: $("#audio_url").val(),
-		cover_url: $("cover_url").val()
+		audio_url: $("#audio_url").val(),
+		cover_url: $("#cover_url").val()
 	};
 
 	//petición AJAX para guardar la información en el backend
@@ -39,6 +40,7 @@ $('.new-song-form').on("submit", function() {
 			console.log("SUCCESS", response);
 			$("form")[0].reset(); // borro todos los campos del formulario
 			$("#artist").focus(); // pongo el foco en el campo artist
+			songsList.load();
 		},
 		error: function(){
 			console.error("ERROR", arguments);

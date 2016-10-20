@@ -134,6 +134,11 @@ button {
   .web-header .web-title {
     font-size: 19px;
     text-shadow: 2px 2px 0px #359777; }
+  .web-header .add-icon {
+    float: right;
+    margin-right: 10px;
+    transition: transform 0.25s;
+    cursor: pointer; }
 
 @media all and (min-width: 737px) {
   .songs-list {
@@ -171,6 +176,9 @@ button {
 
 body .ui-element {
   display: none; }
+
+body.form-shown .add-icon {
+  transform: rotate(45deg); }
 
 body.form-shown .new-song-form {
   display: flex; }
