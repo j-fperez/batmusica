@@ -1,5 +1,5 @@
 var $ = require('jquery');
-var songsList = require('./songs-list');
+var songsListManager = require('./songs-list-manager');
 
 
 // al enviar formulario pulsando enter  o haciendo clic  en el botón
@@ -40,7 +40,7 @@ $('.new-song-form').on("submit", function() {
 			console.log("SUCCESS", response);
 			$("form")[0].reset(); // borro todos los campos del formulario
 			$("#artist").focus(); // pongo el foco en el campo artist
-			songsList.load();
+			songsListManager.load();
 		},
 		error: function(){
 			console.error("ERROR", arguments);

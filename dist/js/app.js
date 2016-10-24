@@ -10230,11 +10230,12 @@ $('.add-icon').on("click", function(){
 },{"jquery":1}],3:[function(require,module,exports){
 require('./form');
 require('./add-icon');
+require('./songs-list-events');
 require('./init');
 
-},{"./add-icon":2,"./form":4,"./init":5}],4:[function(require,module,exports){
+},{"./add-icon":2,"./form":4,"./init":5,"./songs-list-events":6}],4:[function(require,module,exports){
 var $ = require('jquery');
-var songsList = require('./songs-list');
+var songsListManager = require('./songs-list-manager');
 
 
 // al enviar formulario pulsando enter  o haciendo clic  en el botón
@@ -10275,7 +10276,7 @@ $('.new-song-form').on("submit", function() {
 			console.log("SUCCESS", response);
 			$("form")[0].reset(); // borro todos los campos del formulario
 			$("#artist").focus(); // pongo el foco en el campo artist
-			songsList.load();
+			songsListManager.load();
 		},
 		error: function(){
 			console.error("ERROR", arguments);
@@ -10290,13 +10291,19 @@ $('.new-song-form').on("submit", function() {
 
 	return false; // == e.preventDefault();
 });
-},{"./songs-list":6,"jquery":1}],5:[function(require,module,exports){
-var songsList = require('./songs-list');
+},{"./songs-list-manager":7,"jquery":1}],5:[function(require,module,exports){
+var songsListManager = require('./songs-list-manager');
 
 // Cargamos la lista de canciones
-songsList.load();
+songsListManager.load();
 
-},{"./songs-list":6}],6:[function(require,module,exports){
+},{"./songs-list-manager":7}],6:[function(require,module,exports){
+var $ = require('jquery');
+
+$(".songs-list").on("click", ".delete-button", function(){
+	console.log("BORRAR CANCIÓN");
+});
+},{"jquery":1}],7:[function(require,module,exports){
 var $ = require('jquery');
 var utils = require("./utils");
 
@@ -10319,7 +10326,7 @@ module.exports = {
 
 		            var html = '<article class="song">';
 		            html += '<img class="cover" src="' + cover_url + '">';
-		            html += '<img class="favourite-button" src="src/img/icon-heart.png" title="Add to favorites">';
+		            html += '<img class="delete-button" src="src/img/icon-trash.png" title="Delete song">';
 		            html += '<div class="artist">' + utils.escapeHTML(artist) + '</div>';
 		            html += '<div class="title">' + utils.escapeHTML(title) + '</div>';
 		            html += '</article>';
@@ -10333,7 +10340,7 @@ module.exports = {
 	}
 }
 
-},{"./utils":7,"jquery":1}],7:[function(require,module,exports){
+},{"./utils":8,"jquery":1}],8:[function(require,module,exports){
 var $ = require('jquery');
 
 module.exports = {

@@ -20,7 +20,7 @@ module.exports = {
 
 		            var html = '<article class="song">';
 		            html += '<img class="cover" src="' + cover_url + '">';
-		            html += '<img class="favourite-button" src="src/img/icon-heart.png" title="Add to favorites">';
+		            html += '<img class="delete-button" src="src/img/icon-trash.png" title="Delete song">';
 		            html += '<div class="artist">' + utils.escapeHTML(artist) + '</div>';
 		            html += '<div class="title">' + utils.escapeHTML(title) + '</div>';
 		            html += '</article>';
