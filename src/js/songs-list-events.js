@@ -1,8 +1,13 @@
 var $ = require('jquery');
-var songsListManager = require('./songs-list-manager');
+var apiClient = require('./api-client');
 
 $(".songs-list").on("click", ".delete-button", function(){
+	var self = this;
 	var songId = $(this).parent().data('id');
 	$(this).hide();
-	songsListManager.delete(songId);
+	apiClient.delete(songId, function(response){
+		$(self).parent().remove();
+	}, function(response){
+		alert("Error while deleting the song!");
+	});
 });

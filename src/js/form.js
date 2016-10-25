@@ -3,6 +3,7 @@ var apiClient = require('./api-client');
 var songsListManager = require('./songs-list-manager');
 
 var newSongFormButton = $('.new-song-form button');
+var inputs = $('new-song-form input');
 
 function setLoading(){ // antes de enviar la petición
 	$(inputs).attr('disabled', true); // deshabilito todos los inputs
@@ -20,7 +21,6 @@ function unsetLoading(){
 // al enviar formulario pulsando enter  o haciendo clic  en el botón
 // enviamos una petición AJAX para almacernar la canción
 $('.new-song-form').on("submit", function() {
-	debugger;
 	var inputs = $(".new-song-form input");
 	for (var i = 0; i < inputs.length; i++){
 		var input = inputs[i];
