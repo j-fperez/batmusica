@@ -47,7 +47,7 @@ gulp.task("compile-sass", function(){
 gulp.task("concat-js", function(){
 	gulp.src("src/js/app.js")
 	.pipe(tap(function(file){ // tap nos permite ejecutar un código por cada fichero seleccionado en el paso anterior
-		file.contents = browserify(file.path).bundle(); //pasamos el archivo por broserify para importar los require
+		file.contents = browserify(file.path, {debug:true}).bundle(); //pasamos el archivo por broserify para importar los require
 	}))
 	.pipe(buffer()) // covertir cada archivo en un stream
 	.pipe(gulp.dest("dist/js/"))
