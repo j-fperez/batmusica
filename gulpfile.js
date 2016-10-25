@@ -18,7 +18,7 @@ gulp.task("default", ["concat-js", "compile-sass"], function() {
 	browserSync.init({
 		//server: "./", //levanta el servidor en la carpeta actual
 		proxy: "127.0.0.1:8000", // actúa como proxy enviando las peticiones a sparrest
-		browser: "google chrome canary"
+		browser: "google chrome"
 	});
 
 	//observa cambios en archivos SASS y ejecuta la tarea de compilación

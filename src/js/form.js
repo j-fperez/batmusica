@@ -20,8 +20,7 @@ function unsetLoading(){
 // al enviar formulario pulsando enter  o haciendo clic  en el botón
 // enviamos una petición AJAX para almacernar la canción
 $('.new-song-form').on("submit", function() {
-
-	// Validación de inputs
+	debugger;
 	var inputs = $(".new-song-form input");
 	for (var i = 0; i < inputs.length; i++){
 		var input = inputs[i];
@@ -43,7 +42,6 @@ $('.new-song-form').on("submit", function() {
 	setLoading(); // deshabilito el formulario
 
 	apiClient.save(song, function(response) {
-		console.log("paso por aqui");
 		$("form")[0].reset(); // borro todos los campos del formulario
 		$("#artist").focus(); // pongo el foco en el campo artist
 		songsListManager.load();
