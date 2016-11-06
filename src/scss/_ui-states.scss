@@ -8,7 +8,7 @@ body {
 	// Muestra el formulario
 	&.form-shown {
 		.add-icon {
-			transform: rotate(45deg);
+			transform: rotate(135deg);
 		}
 		.new-song-form {
 			display: flex;

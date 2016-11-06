@@ -3,10 +3,22 @@ var $ = require('jquery');
 module.exports = {
 
 	save: function(song, successCallback, errorCallback) {
+
+		var formData = new FormData();
+		formData.append('artist', song.artist);
+		formData.append('title', song.title);
+		formData.append('audio_url', song.audio_file);
+		if (song.cover_file)
+			formData.append('cover_url', song.cover_file);
+		else
+			formData.append('cover_url', '');
+
 		$.ajax({
 			url: "/api/songs/",
 			method: "post",
-			data: song,
+			data: formData,
+			processData: false,
+			contentType: false,
 			success: successCallback,
 			error: errorCallback
 		});

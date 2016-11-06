@@ -85,7 +85,7 @@ form {
       form button {
         width: 20%; } }
 
-label, input, button, button {
+label, input, button, .drop-zone, button {
   display: block;
   width: 100%;
   box-sizing: border-box; }
@@ -95,13 +95,13 @@ label {
   font-weight: bold;
   text-transform: uppercase; }
 
-input, button {
+input, button, .drop-zone {
   border: 1px solid #8ED7BF;
   margin: 5px 0px 15px 0px;
   padding: 10px;
   font-size: 14px;
   border-radius: 5px; }
-  input:focus, button:focus {
+  input:focus, button:focus, .drop-zone:focus {
     outline-color: #8ED7BF;
     background: #EBEDEA; }
 
@@ -116,6 +116,15 @@ button {
   button:active {
     background: #43bc94;
     color: #fff; }
+
+.drop-zone {
+  background-color: #EBEDEA;
+  text-align: center;
+  text-transform: uppercase;
+  transition: all 0.25s;
+  font-size: 11px; }
+  .drop-zone.drop-here {
+    background-color: #d9f2ea; }
 
 ::selection {
   background: #FCF3CE; }
@@ -188,7 +197,7 @@ body .ui-element {
   display: none; }
 
 body.form-shown .add-icon {
-  transform: rotate(45deg); }
+  transform: rotate(135deg); }
 
 body.form-shown .new-song-form {
   display: flex; }
