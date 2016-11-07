@@ -11,13 +11,15 @@ var sourcemaps = require('gulp-sourcemaps');
 var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer');
 var cssnano = require('cssnano');
-
+var imagemin = require('gulp-imagemin');
 
 // variables de patrones de archivos
-var jsFiles = ["src/js/*.js", "src/js/**/*.js"]
+var jsFiles = ["src/js/*.js", "src/js/**/*.js"];
+var uploadedImages = ["uploads/*.png", "uploads/*.jpg", "uploads/*.gif", "uploads/*.svg"];
+var assetsImages = ["src/img/*.png", "src/img/*.jpg", "src/img/*.gif", "src/img/*.svg"];
 
 // definimos tarea por defecto
-gulp.task("default", ["concat-js", "compile-sass"], function() {
+gulp.task("default", ["concat-js", "compile-sass", "assets-images-optimization"], function() {
 
 	// iniciar browserSync
 	browserSync.init({
@@ -31,10 +33,14 @@ gulp.task("default", ["concat-js", "compile-sass"], function() {
 
 	// observa cambios en archivos HTML y recargue el navegador
 	gulp.watch("*.html").on("change", browserSync.reload); 
-});
 
 	//observar cambios en archivos JS para concatenar
 	gulp.watch(jsFiles, ["concat-js"]);
+
+	//observar cambios en los assets para optimizarlos
+	gulp.watch(assetsImages, ["assets-images-optimization"]);
+
+});
 
 // definimos la tarea para compilar SAAS
 gulp.task("compile-sass", function(){
@@ -71,3 +77,17 @@ gulp.task("concat-js", function(){
 	}))
 	.pipe(browserSync.stream());
 });
+
+// optimización de imágenes de usuario
+gulp.task("uploaded-images-optimization", function(){
+	gulp.src(uploadedImages)
+	.pipe(imagenmin())
+	.pipe(gulp.dest('./uploads/'));
+	});
+
+// optimización de assets
+gulp.task("assets-images-optimization", function(){
+	gulp.src(assetsImages)
+	.pipe(imagemin())
+	.pipe(gulp.dest('./dist/img/'));
+	});
