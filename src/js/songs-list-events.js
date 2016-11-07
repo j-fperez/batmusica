@@ -11,3 +11,9 @@ $(".songs-list").on("click", ".delete-button", function(){
 		alert("Error while deleting the song!");
 	});
 });
+
+$(".songs-list").on("click", ".song", function() {
+	var songId = $(this).data("id");
+	localStorage.setItem("lastSong", songId);
+	console.log("Canción seleccionada", songId);
+});
