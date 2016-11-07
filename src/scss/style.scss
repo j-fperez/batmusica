@@ -2,8 +2,14 @@
 @import "reset";
 @import "clearfix";
 @import "https://fonts.googleapis.com/css?family=Open+Sans:400,700";
+@import "sprite";
 @import "variables";
 @import "html-tags";
 @import "web-header";
 @import "songs-list";
 @import "ui-states";
+
+@include sprites($spritesheet-sprites);
+.sprite {
+	display: inline-block;
+}

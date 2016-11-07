@@ -1,5 +1,5 @@
 var $ = require('jquery');
 
-$('.add-icon').on("click", function(){
+$('.icon-add').on("click", function(){
 	$("body").toggleClass("form-shown").toggleClass('songs-list-shown');
 });
